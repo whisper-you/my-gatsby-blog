@@ -329,3 +329,27 @@ a:focus {
     list-style-position: inside;
   }
 }
+
+
+/* ===== 响应式布局优化：扩大桌面端宽度 ===== */
+
+/* 平板及以上设备 */
+@media (min-width: 768px) {
+  .global-wrapper {
+    --maxWidth-wrapper: var(--maxWidth-3xl); /* 48rem = 768px */
+  }
+}
+
+/* 桌面电脑 */
+@media (min-width: 1024px) {
+  .global-wrapper {
+    --maxWidth-wrapper: var(--maxWidth-4xl); /* 56rem = 896px */
+  }
+}
+
+/* 大屏显示器（可选） */
+@media (min-width: 1400px) {
+  .global-wrapper {
+    --maxWidth-wrapper: 64rem; /* 自定义 1024px，避免过宽 */
+  }
+}

@@ -9,6 +9,8 @@ import * as React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
 
+//  查询作者信息
+// useStaticQuery是一个用于在Gatsby组件中执行GraphQL查询的钩子。
 const Bio = () => {
   const data = useStaticQuery(graphql`
     query BioQuery {
@@ -17,16 +19,17 @@ const Bio = () => {
           author {
             name
             summary
+            bio
           }
           social {
-            twitter
+            github
           }
         }
       }
     }
   `)
 
-  // Set these values by editing "siteMetadata" in gatsby-config.js
+  //  在gatsby-config.js中通过编辑 "siteMetadata" 来设置这些数据
   const author = data.site.siteMetadata?.author
   const social = data.site.siteMetadata?.social
 
@@ -46,9 +49,14 @@ const Bio = () => {
         <p>
           Written by <strong>{author.name}</strong> {author?.summary || null}
           {` `}
-          <a href={`https://twitter.com/${social?.twitter || ``}`}>
-            You should follow them on Twitter
-          </a>
+          {author?.bio && (
+            <>
+              {author.bio}
+              <a href={`https://github.com/${social?.github || ``}`}>
+                {social?.github}
+              </a>
+            </>
+          )}
         </p>
       )}
     </div>

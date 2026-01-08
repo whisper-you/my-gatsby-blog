@@ -17,7 +17,7 @@ const Seo = ({ description, title, children }) => {
             title
             description
             social {
-              twitter
+              github
             }
           }
         }
@@ -38,7 +38,7 @@ const Seo = ({ description, title, children }) => {
       <meta name="twitter:card" content="summary" />
       <meta
         name="twitter:creator"
-        content={site.siteMetadata?.social?.twitter || ``}
+        content={site.siteMetadata?.social?.github || ``}
       />
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={metaDescription} />
